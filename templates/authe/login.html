@@ -10,6 +10,10 @@
 
     <button type="submit">submit</button>
 
+
+    <p>dont have an account? <a href="{% url 'register' %}">create one</a></p>
+    <p>forgot password? <a href="{% url 'password_reset' %}">reset password</a></p>
+
     {{form.errors}}
 </form>
 
