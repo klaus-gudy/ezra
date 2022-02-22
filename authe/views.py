@@ -1,11 +1,21 @@
 from django.shortcuts import render, redirect
-from django.contrib.auth.forms import UserCreationForm
+from django.contrib.auth.forms import UserCreationForm, PasswordChangeForm
 from django.contrib import messages
 
-from .forms import signup
+from .forms import signup, changingPasswordForm
 
 from django.contrib.auth import authenticate, login, logout
 from django.contrib.auth.decorators import login_required
+
+from django.contrib.auth.views import PasswordChangeView
+from django.urls import reverse_lazy
+
+class changepassword(PasswordChangeView):
+    form_class = changingPasswordForm
+    success_url = reverse_lazy('change_successful')
+
+def changesuccessful(request):
+    return render(request, 'authe/password_change_successful.html')
 
 def loginpage(request):
     if request.user.is_authenticated:
