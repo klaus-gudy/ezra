@@ -9,9 +9,22 @@
 <body>
 
     <ul>
-        <li>home</li>
-        <li>home</li>
-        <li>home</li>
+        <li>welcome</li>
+        <li>seek</li>
+        <li>post</li>
+        <li>add cv</li>
+        <li><a href="{% url 'home' %}">home</a></li>
+        
+        {% if user.is_authenticated %}
+        <li><a href="{% url 'add_job' %}">add job</a></li>
+        <li><a href="{% url 'logout' %}">logout</a></li>
+        <li><a href="{% url 'password_change' %}">settings</a></li>
+        
+        {% else %}
+        <li><a href="{% url 'register' %}">register</a></li>
+        <li><a href="{% url 'login' %}">login</a></li>
+        
+        {% endif %}
     </ul>
 
     

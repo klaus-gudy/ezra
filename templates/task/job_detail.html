@@ -1,0 +1,27 @@
+{% extends 'task/index.html' %}
+
+{% block content %}
+
+<h1>details</h1>
+
+<br>
+
+<p>tittle-{{job.title}}</p>
+<p>location -{{job.location}}</p>
+
+<hr>
+    
+<p>job summary-{{job.job_summary}}</p>
+<p>job duties-{{job.duties}}</p>
+<p>job qualification-{{job.qualification}}</p>
+
+<hr>
+
+{{job.created_on}}
+
+<hr>
+
+<a href="{% url 'home' %}">back</a>
+
+
+{% endblock content %}

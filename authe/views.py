@@ -60,6 +60,3 @@ def logoutpage(request):
     logout(request)
     return redirect('login')
 
-@login_required(login_url='login')
-def home(request):
-    return render(request, 'task/home.html')
