@@ -2,7 +2,7 @@
 
 {% block content %}
 
-<h1>ad post</h1>
+<h1>add post</h1>
 
 <form action="" method="post">
     {% csrf_token %}
@@ -12,6 +12,10 @@
 
 </form>
 
+<script>
+    var name = "{{ user.username }}";
+    document.getElementById("myuser").value =  name;
+</script>
 
 
 {% endblock content %}

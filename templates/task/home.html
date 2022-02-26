@@ -11,8 +11,18 @@
         <a href="{% url 'job_detail' job.pk %}">{{job.title}}</a> -
         {{job.writter}}
     </li>
-    
     {{job.created_on}}
+
+    {% if user.is_authenticated %}
+    {% if user.id == job.writter.id %}
+    <small><a href="{% url 'update_job' job.pk %}">update</a></small>
+    
+    <strong><small><a href="{% url 'delete_job' job.pk %}">delete post</a></small></strong>
+    {% endif %}
+        
+    {% endif %}
+    
+    
 
     <hr>
 

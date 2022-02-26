@@ -11,13 +11,22 @@
 
 <hr>
     
-<p>job summary-{{job.job_summary}}</p>
+<p>job summary-{{job.job_summary | safe }}</p>
 <p>job duties-{{job.duties}}</p>
 <p>job qualification-{{job.qualification}}</p>
 
 <hr>
 
 {{job.created_on}}
+
+{% if user.is_authenticated %}
+{% if user.id == job.writter.id %}
+    <small><a href="{% url 'update_job' job.pk %}">update</a></small>
+    
+    <strong><small><a href="{% url 'delete_job' job.pk %}">delete post</a></small></strong>
+    {% endif %}
+    {% endif %}
+
 
 <hr>
 
