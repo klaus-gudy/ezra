@@ -1,4 +1,5 @@
 from django.db import models
+from django.urls import reverse
 from django.contrib.auth import get_user_model
 User = get_user_model()
 
@@ -24,3 +25,7 @@ class Job(models.Model):
 
     def __str__(self):
         return self.position + ' | ' + str(self.writter)
+
+    def get_absolute_url(self):
+        # return reverse('job_detail', args=(str(self.id)))
+        return reverse('home')
