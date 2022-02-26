@@ -1,0 +1,28 @@
+{% extends 'task/index.html' %}
+
+{% block content %}
+
+{% if user.is_authenticated %}
+    {% if user.id == job.writter.id %}
+        <h2>delete - {{ job.position }}</h2>
+
+        <form action="" method="post">
+            {% csrf_token %}
+            <strong>are you sure you want to delete post?</strong> <br>
+
+            <button type="submit">delete post</button>
+
+        </form>
+
+    {% else %}
+        <h3>your not the owner</h3>
+
+    {% endif %}
+
+{% else %}
+<h3>login first</h3>
+{% endif %}
+
+
+
+{% endblock content %}
