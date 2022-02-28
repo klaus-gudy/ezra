@@ -27,7 +27,7 @@ SECRET_KEY = 'django-insecure-*y+tm70k-2=10rnzju!_$t5fjww+x1bpbunn_)1(o&%=h3(c-(
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['ajiraportal.herokuapp.com']
 
 
 # Application definition
