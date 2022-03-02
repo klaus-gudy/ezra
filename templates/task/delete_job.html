@@ -2,26 +2,32 @@
 
 {% block content %}
 
-{% if user.is_authenticated %}
+<div class="container">
+    {% if user.is_authenticated %}
     {% if user.id == job.writter.id %}
         <h2>delete - {{ job.position }}</h2>
 
         <form action="" method="post">
             {% csrf_token %}
-            <strong>are you sure you want to delete post?</strong> <br>
+            <p>are you sure you want to delete post?</p> <br>
 
-            <button type="submit">delete post</button>
+            <button type="submit" class="btn btn-danger">Delete Post</button>
+            <a href="{% url 'home' %}" class="btn btn-secondary">No</a>
+            
 
         </form>
 
     {% else %}
-        <h3>your not the owner</h3>
+        <p>your not the owner</p>
 
     {% endif %}
 
 {% else %}
-<h3>login first</h3>
+<p>login first</p>
 {% endif %}
+
+</div>
+
 
 
 

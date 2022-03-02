@@ -4,7 +4,7 @@ from django.contrib.auth.decorators import login_required
 from django.views.generic import ListView, DetailView, CreateView, UpdateView, DeleteView
 from .models import Job
 
-from .forms import JobForm
+from .forms import JobForm, JobUpdateForm
 
 from django.urls import reverse_lazy
 
@@ -29,7 +29,8 @@ class AddPostView(CreateView):
 
 class UpdatePostView(UpdateView):
     model = Job
-    fields= ['title', 'position', 'location', 'job_summary', 'duties', 'qualification']
+    form_class = JobUpdateForm
+    # fields= ['title', 'position', 'location', 'job_summary', 'duties', 'qualification']
     template_name = 'task/update_job.html'
 
 class DeleteView(DeleteView):

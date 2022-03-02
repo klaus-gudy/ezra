@@ -2,15 +2,19 @@
 
 {% block content %}
 
-<h1>add post</h1>
 
-<form action="" method="post">
-    {% csrf_token %}
-    {{form.as_p}}
 
-    <button type="submit">submit</button>
+<div class="container">
+    <h1>Add Job-post</h1>
+    <form action="" method="post">
+        {% csrf_token %}
+        {{form.as_p}}
+    
+        <button type="submit" class="btn btn-success">submit</button>
+    
+    </form>
+</div>
 
-</form>
 
 <script>
     var name = "{{ user.username }}";
