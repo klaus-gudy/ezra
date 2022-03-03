@@ -45,6 +45,7 @@ INSTALLED_APPS = [
 
     'authe',
     'task',
+    'candidate',
 ]
 
 MIDDLEWARE = [
