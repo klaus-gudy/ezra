@@ -5,8 +5,24 @@
 
 {% block content %}
 
-<h1>testing home page</h1>
+
+<h1>seek </h1>
+
 <span>hello, {{ request.user }}</span>
+<br>
+
+{% for job in object_list %}
+    <li>
+        <a href="{% url 'job_detail' job.pk %}">{{job.title}}</a> -
+        {{job.writter}}
+    </li>
+    {{job.created_on}}
+
+    <hr>
+
+{% endfor %}
+
+
 
 
 {% endblock content %}

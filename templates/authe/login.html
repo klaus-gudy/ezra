@@ -8,11 +8,11 @@
     <input type="text" name="username" placeholder="username">
     <input type="password" name="password" placeholder="password">
 
-    <button type="submit">submit</button>
+    <button type="submit" class="btn btn-success">submit</button>
 
 
-    <p>dont have an account? <a href="{% url 'register' %}">create one</a></p>
-    <p>forgot password? <a href="{% url 'password_reset' %}">reset password</a></p>
+    <p>dont have an account? <a href="{% url 'register' %}" class="btn btn-secondary">create one</a></p>
+    <p>forgot password? <a href="{% url 'password_reset' %}" class="btn btn-secondary">reset password</a></p>
 
     {{form.errors}}
 </form>

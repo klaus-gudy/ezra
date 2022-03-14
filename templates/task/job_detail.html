@@ -1,0 +1,36 @@
+{% extends 'task/index.html' %}
+
+{% block content %}
+
+<h1>details</h1>
+
+<br>
+
+<p>tittle-{{job.title}}</p>
+<p>location -{{job.location}}</p>
+
+<hr>
+    
+<p>job summary-{{job.job_summary | safe }}</p>
+<p>job duties-{{job.duties}}</p>
+<p>job qualification-{{job.qualification}}</p>
+
+<hr>
+
+{{job.created_on}}
+
+{% if user.is_authenticated %}
+{% if user.id == job.writter.id %}
+<small><a href="{% url 'update_job' job.pk %}" class="btn-sm btn-secondary">update</a></small>
+
+<strong><small><a href="{% url 'delete_job' job.pk %}" class="btn-sm btn-danger">delete post</a></small></strong>
+{% endif %}  
+{% endif %}
+
+
+<hr>
+
+<a href="{% url 'home' %}" class="btn-sm btn-secondary">back</a>
+
+
+{% endblock content %}

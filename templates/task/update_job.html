@@ -1,0 +1,28 @@
+{% extends 'task/index.html' %}
+
+{% block content %}
+
+<h1>update post</h1>
+
+{% if user.is_authenticated %}
+    {% if user.id == job.writter.id %}
+        <form   form action="" method="post">
+            {% csrf_token %}
+            {{form.as_p}}
+
+            <button type="submit" class="btn btn-success">update</button>
+
+        </form>
+    {% else %}
+        <h3>your not allowed </h3>
+    {% endif %}
+{% else %}
+        <h3>login to make changes first</h3>
+{% endif %}
+    
+
+
+
+
+
+{% endblock content %}

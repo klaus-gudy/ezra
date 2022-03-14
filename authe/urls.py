@@ -12,9 +12,6 @@ urlpatterns = [
     path('password_change/', changepassword.as_view(template_name='authe/password_change.html'), name="password_change"),
     path('password_change_successful/', views.changesuccessful, name='change_successful'),
 
-    # should be moved to task
-    path('', views.home, name='home'),
-
     #password reset 
     path('reset_password/',
     auth_views.PasswordResetView.as_view(template_name='authe/password_reset.html'),

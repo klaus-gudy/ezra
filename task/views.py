@@ -1,29 +1,41 @@
-from django.shortcuts import render, redirect, get_object_or_404
-from .models import Job, Applicant, Selected
-# from candidate.models import Profile, Skill
-from .forms import JobForm
-from django.contrib.auth.decorators import login_required
-# from django.conf import settings
-# from django.http import HttpResponseRedirect
-from django.contrib.auth import get_user_model
-User = get_user_model()
-from django.contrib import messages
-# from django.views.generic import UpdateView
 
-def add_job(request):
-    user = request.user
-    if request.method == "POST":
-        form = JobForm(request.POST)
-        if form.is_valid():
-            data = form.save(commit=False)
-            data.owner = user
-            data.save()
-            return redirect('home')
-    else:
-        form = NewJobForm()
-    context = {
-        # 'add_job_page': "active",
-        'form': form,
-        # 'rec_navbar': 1,
-    }
-    return render(request, 'task/add_job.html', context)
+from django.shortcuts import render, redirect
+from django.contrib.auth.decorators import login_required
+
+from django.views.generic import ListView, DetailView, CreateView, UpdateView, DeleteView
+from .models import Job
+
+from .forms import JobForm, JobUpdateForm
+
+from django.urls import reverse_lazy
+
+# @login_required(login_url='login')
+# def home(request):
+#     return render(request, 'task/home.html')
+
+
+class HomeView(ListView):
+    model = Job
+    template_name = 'task/home.html'
+    ordering = ['-created_on']
+
+class JobDetailView(DetailView):
+    model = Job
+    template_name = 'task/job_detail.html'
+
+class AddPostView(CreateView):
+    model = Job
+    form_class = JobForm
+    template_name = 'task/add_job.html'
+
+class UpdatePostView(UpdateView):
+    model = Job
+    form_class = JobUpdateForm
+    # fields= ['title', 'position', 'location', 'job_summary', 'duties', 'qualification']
+    template_name = 'task/update_job.html'
+
+class DeleteView(DeleteView):
+    model = Job
+    template_name = 'task/delete_job.html'
+    success_url = reverse_lazy('home')
+
