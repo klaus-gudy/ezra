@@ -1,3 +1,4 @@
+
 from django.urls import path
 from .views import HomeView, JobDetailView, AddPostView, UpdatePostView, DeleteView
 # from . import views
@@ -9,4 +10,5 @@ urlpatterns = [
     path('add_job/', AddPostView.as_view(), name='add_job'),
     path('update_job/<int:pk>', UpdatePostView.as_view(), name='update_job'),
     path('delete_job/<int:pk>', DeleteView.as_view(), name='delete_job'),
+
 ]

@@ -44,9 +44,10 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
 
     'authe',
-    'task',
+
     'candidate',
-]
+    'task',
+
 
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',

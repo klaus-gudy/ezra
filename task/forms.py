@@ -1,32 +1,36 @@
 from django import forms
 from .models import Job
 
+
+
 class JobForm(forms.ModelForm):
     class Meta:
         model = Job
-        fields= ['title','writter', 'position', 'location', 'job_summary', 'duties', 'qualification']
+        fields= ['title','company', 'location','description', 'qualification', 'job_type']
 
         widgets = {
             'title' : forms.TextInput(attrs={'class':'form-control', 'placeholder':'Enter work title'}),
-            'writter' : forms.Select(attrs={'id':'myuser', 'value':'','class':'form-control', 'placeholder':'select your name'}),
-            'position' : forms.TextInput(attrs={'class':'form-control', 'placeholder':'Enter position of worker'}),
+            'company' : forms.TextInput(attrs={'class':'form-control'}),
             'location' : forms.TextInput(attrs={'class':'form-control', 'placeholder':'Enter your location'}),
-            'job_summary' : forms.Textarea(attrs={'class':'form-control', 'placeholder':'E.g organizing paper work'}),
-            'duties' : forms.Textarea(attrs={'class':'form-control', 'placeholder':'E.g pin and arrange paper alphabetically'}),
-            'qualification' : forms.Textarea(attrs={'class':'form-control', 'placeholder':'E.g form 4 leaver and attended training'}),
+            'description' : forms.Textarea(attrs={'class':'form-control', 'placeholder':'E.g organizing paper work'}),
+            'qualification' : forms.TextInput(attrs={'class':'form-control', 'placeholder':'E.g form 4 leaver and attended training'}),
+            'job_type' : forms.TextInput(attrs={'class':'form-control'}),
+
         }
 
 
 class JobUpdateForm(forms.ModelForm):
     class Meta:
         model = Job
-        fields= ['title', 'position', 'location', 'job_summary', 'duties', 'qualification']
+
+        fields= ['title','company', 'location','description', 'qualification', 'job_type']
 
         widgets = {
-            'title' : forms.TextInput(attrs={'class':'form-control',}),
-            'position' : forms.TextInput(attrs={'class':'form-control',}),
-            'location' : forms.TextInput(attrs={'class':'form-control',}),
-            'job_summary' : forms.Textarea(attrs={'class':'form-control',}),
-            'duties' : forms.Textarea(attrs={'class':'form-control',}),
-            'qualification' : forms.Textarea(attrs={'class':'form-control',}),
+            'title' : forms.TextInput(attrs={'class':'form-control', 'placeholder':'Enter work title'}),
+            'company' : forms.TextInput(attrs={'class':'form-control'}),
+            'location' : forms.TextInput(attrs={'class':'form-control', 'placeholder':'Enter your location'}),
+            'description' : forms.Textarea(attrs={'class':'form-control', 'placeholder':'E.g organizing paper work'}),
+            'qualification' : forms.TextInput(attrs={'class':'form-control', 'placeholder':'E.g form 4 leaver and attended training'}),
+            'job_type' : forms.TextInput(attrs={'class':'form-control'}),
+
         }

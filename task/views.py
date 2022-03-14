@@ -1,3 +1,4 @@
+
 from django.shortcuts import render, redirect
 from django.contrib.auth.decorators import login_required
 
@@ -37,3 +38,4 @@ class DeleteView(DeleteView):
     model = Job
     template_name = 'task/delete_job.html'
     success_url = reverse_lazy('home')
+
